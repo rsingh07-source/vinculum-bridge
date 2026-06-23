@@ -60,13 +60,13 @@ app.post('/RestWS/api/eretail/v1/custom/order/return', async (req, res) => {
                     custRetCode: returnOrderCode || "",       // Mapped from returnOrderCode
                     extCustRetCode: returnOrderCode || "",    // Mapped from returnOrderCode
                     return_date: formattedDate,
-                    remarks: incomingPayload.returnReason || "Received incomplete product",
+                    remarks: incomingPayload.returnReason || "",
                     category: "Refund",
                     items: [
                         {
                             ext_lineno: foundExtLineNo,
                             sku: incomingSku || "",
-                            return_reason: incomingItem?.reason || "Received incomplete product", // Mapped from item's reason
+                            return_reason: incomingItem?.reason || "", // Mapped from item's reason
                             return_qty: "1"
                         }
                     ]
