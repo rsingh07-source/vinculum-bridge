@@ -19,7 +19,7 @@ app.post('/RestWS/api/eretail/v1/custom/order/return', async (req, res) => {
             return res.status(400).json({ error: "Missing forwardOrderCode" });
         }
 
-        console.log(`Processing Order: ${forwardOrderCode}`);
+        console.log("Incoming Request Payload from Magento:", JSON.stringify(incomingPayload, null, 2));
 
         // 1. Get Shipment Details from Vinculum
         const shipmentResponse = await axios.post(
